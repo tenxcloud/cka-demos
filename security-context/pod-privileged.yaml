@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pod-privileged
+  name: pod-privileged
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-privileged
+  template:
+    metadata:
+      labels:
+        app: pod-privileged
+    spec:
+      containers:
+      - image: nginx:1.10.1
+        imagePullPolicy: IfNotPresent
+        name: nginx
+        securityContext:
+          privileged: true
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}

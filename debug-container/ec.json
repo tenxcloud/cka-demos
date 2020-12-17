@@ -1,0 +1,24 @@
+{
+   "kind":"EphemeralContainers",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"exam-4",
+      "namespace":"default",
+   },
+   "ephemeralContainers":[
+      {
+         "name":"debugger",
+         "image":"busybox",
+         "command":[
+            "sh"
+         ],
+         "resources":{
+
+         },
+         "terminationMessagePolicy":"File",
+         "imagePullPolicy":"IfNotPresent",
+         "stdin":true,
+         "tty":true
+      }
+   ]
+}

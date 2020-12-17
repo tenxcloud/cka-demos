@@ -1,0 +1,22 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    k8s-app: rbac-test
+  name: rbac-test
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: rbac-test
+  template:
+    metadata:
+      labels:
+        k8s-app: rbac-test
+    spec:
+      containers:
+        - name: rbac-test
+          image: index.tenxcloud.com/system_containers/kubectl-amd64:v1.18.8
+          imagePullPolicy: Always
+      serviceAccountName: rbac-test

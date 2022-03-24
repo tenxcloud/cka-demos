@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx-schedule
+  name: nginx-schedule
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: node03
+  containers:
+  - image: nginx
+    name: nginx-schedule
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: app-data-sc
+  labels:
+    type: app-data-sc
+spec:
+  storageClassName: local-storage
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
